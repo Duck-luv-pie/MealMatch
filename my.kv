@@ -1,0 +1,356 @@
+WindowManager:
+    MainWindow:
+    DonatorLogin:
+    ReceiverLogin:
+    ReceiverSearch:
+    DonatorMainScreen:
+    SellOrder:
+    TotalDonations:
+    TaxExempt:
+
+
+<MainWindow>:
+    name: "main"
+    canvas.before:
+        Color:
+            rgba: (60/255,128/255,27/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    GridLayout:
+        cols: 2
+
+        ImageButton:
+            source: 'WebsitePics/Donator.png'
+            allow_stretch:  True
+            on_release:
+                app.root.current = "DonatorLogin"
+
+        ImageButton:
+            source: 'WebsitePics/Receiver.png'
+            allow_stretch:  True
+            on_release:
+                app.root.current = "ReceiverLogin"
+
+
+
+    GridLayout:
+        cols: 1
+
+        ImageButton:
+            source: 'WebsitePics/TopBar.png'
+            allow_stretch:  True
+            on_release:
+                app.root.current = "main"
+
+        Label:
+            text: ''
+
+        Label:
+            text: ''
+
+
+
+
+
+
+
+<DonatorLogin>
+    name: "DonatorLogin"
+    GridLayout:
+        cols: 2
+        Image:
+            source: 'WebsitePics/Food.png'
+            allow_stretch:  True
+        Image:
+            source: 'WebsitePics/RightSide.png'
+            allow_stretch:  True
+
+    GridLayout:
+        cols: 2
+        Label:
+            text: ""
+        Label:
+            text: ""
+        Label:
+            text: ""
+        Label:
+            text: ""
+        Label:
+            text: ""
+        TextInput:
+            id: ReceiverName
+            multiline: False
+        Label:
+            text: ""
+        TextInput:
+            id: ReceiverName
+            multiline: False
+        Label:
+            text: ""
+        Button:
+            text: "I have written my Username \nin Box 1 and Password in Box 2"
+            on_release: app.root.current = "DonatorMainScreen"
+
+    GridLayout:
+        cols: 1
+
+        ImageButton:
+            source: 'WebsitePics/TopBar.png'
+            allow_stretch:  True
+            on_release:
+                app.root.current = "main"
+
+        Label:
+            text: ''
+
+        Label:
+            text: ''
+
+<ReceiverLogin>:
+    name: "ReceiverLogin"
+    GridLayout:
+        cols: 2
+        Image:
+            source: 'WebsitePics/Food.png'
+            allow_stretch:  True
+        Image:
+            source: 'WebsitePics/RightSide.png'
+            allow_stretch:  True
+
+    GridLayout:
+        cols: 2
+        Label:
+            text: ""
+        Label:
+            text: ""
+        Label:
+            text: ""
+        Label:
+            text: ""
+        Label:
+            text: ""
+        TextInput:
+            id: ReceiverName
+            multiline: False
+        Label:
+            text: ""
+        TextInput:
+            id: ReceiverName
+            multiline: False
+        Label:
+            text: ""
+        Button:
+            text: "I have written my Username \nin Box 1 and Password in Box 2"
+            on_release: app.root.current = "ReceiverSearch"
+
+    GridLayout:
+        cols: 1
+
+        ImageButton:
+            source: 'WebsitePics/TopBar.png'
+            allow_stretch:  True
+            on_release:
+                app.root.current = "main"
+
+        Label:
+            text: ''
+
+        Label:
+            text: ''
+
+
+<ReceiverSearch>:
+    name: "ReceiverSearch"
+
+    GridLayout:
+        cols: 1 # there are 10 blanks
+        ImageButton:
+            source: 'WebsitePics/BlankSearch.png'
+            allow_stretch:  True
+
+
+    GridLayout:
+        cols: 1
+
+        ImageButton:
+            source: 'WebsitePics/TopBar.png'
+            allow_stretch:  True
+            on_release:
+                app.root.current = "main"
+
+        Label:
+            text: ''
+
+        Label:
+            text: ''
+
+
+
+<DonatorMainScreen>:
+    name: "DonatorMainScreen"
+
+    GridLayout:
+        cols: 3
+
+        ImageButton:
+            source: 'WebsitePics/Sell.png'
+            allow_stretch:  True
+            on_release:
+                app.root.current = "SellOrder"
+        ImageButton:
+            source: 'WebsitePics/CheckDono.png'
+            allow_stretch:  True
+            on_release:
+                app.root.current = "TotalDonations"
+        ImageButton:
+            source: 'WebsitePics/CheckTax.png'
+            allow_stretch:  True
+            on_release:
+                app.root.current = "TaxExempt"
+
+    GridLayout:
+        cols: 1
+
+        ImageButton:
+            source: 'WebsitePics/TopBar.png'
+            allow_stretch:  True
+            on_release:
+                app.root.current = "main"
+
+        Label:
+            text: ''
+
+        Label:
+            text: ''
+
+<SellOrder>:
+    name: "SellOrder"
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        TextInput:
+            id: ProductName
+            multiline: False
+
+        Button:
+            font_size: 32
+            text: "Submit Product Name"
+
+        TextInput:
+            id: FoodQuantity
+            multiline: False
+
+        Button:
+            font_size: 32
+            text: "Submit Food Quantity"
+
+        TextInput:
+            id: FoodPrice
+            multiline: False
+
+        Button:
+            font_size: 32
+            text: "Submit Food Value ($CAD)"
+
+
+        Button:
+            font_size: 32
+            text: "Go Back"
+            on_release:
+                app.root.current = "DonatorMainScreen"
+    GridLayout:
+        cols: 1
+
+        ImageButton:
+            source: 'WebsitePics/TopBar.png'
+            allow_stretch:  True
+            on_release:
+                app.root.current = "main"
+
+        Label:
+            text: ''
+
+        Label:
+            text: ''
+
+
+<TotalDonations>:
+    name: "TotalDonations"
+    GridLayout:
+        cols: 1
+
+        ImageButton:
+            source: 'WebsitePics/TotalDonatedPicture.png'
+            allow_stretch:  True
+
+
+    GridLayout:
+        cols: 1
+
+        ImageButton:
+            source: 'WebsitePics/TopBar.png'
+            allow_stretch:  True
+            on_release:
+                app.root.current = "main"
+
+        Label:
+            text: ''
+
+        Label:
+            text: ''
+    GridLayout:
+        cols: 1
+        Label:
+            text: ''
+        Label:
+            text: ''
+        Label:
+            text: ''
+        Label:
+            text: ''
+        Button:
+            font_size: 32
+            text: "Go Back"
+            on_release:
+                app.root.current = "DonatorMainScreen"
+<TaxExempt>:
+    name: "TaxExempt"
+    GridLayout:
+        cols: 1
+
+        Image:
+            source: 'WebsitePics/TotalMoneyExempt.png'
+            allow_stretch: True
+
+    GridLayout:
+        cols: 1
+
+        ImageButton:
+            source: 'WebsitePics/TopBar.png'
+            allow_stretch:  True
+            on_release:
+                app.root.current = "main"
+
+        Label:
+            text: ''
+
+        Label:
+            text: ''
+    GridLayout:
+        cols: 1
+        Label:
+            text: ''
+        Label:
+            text: ''
+        Label:
+            text: ''
+        Label:
+            text: ''
+        Button:
+            font_size: 32
+            text: "Go Back"
+            on_release:
+                app.root.current = "DonatorMainScreen"
