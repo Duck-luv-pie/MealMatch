@@ -71,90 +71,90 @@ class MyApp(App):
         self.icon = r'C:\Users\Eric\PycharmProjects\MCCO_app\MCCO_pics\Price_Tag_Logo.jpg'
         Window.clearcolor = (65/255,68/255,175/255,255/255)
 
-        #defining my database
-        mydb = mysql.connector.connect(
-            host = "localhost",
-            user = "root",
-            passwd ="password123",
-            database = "second_db"
-        )
+#         #defining my database
+#         mydb = mysql.connector.connect(
+#             host = "localhost",
+#             user = "root",
+#             passwd ="password123",
+#             database = "second_db"
+#         )
 
-        #create my cursor
-        c = mydb.cursor()
+#         #create my cursor
+#         c = mydb.cursor()
 
-        #create my database
-        # c.execute("CREATE DATABASE IF NOT EXISTS second_db")
+#         #create my database
+#         # c.execute("CREATE DATABASE IF NOT EXISTS second_db")
 
-        #check to see if database was created
-        # c.execute("SHOW DATABASES")
-        # for db in c:
-        #    print(db)
+#         #check to see if database was created
+#         # c.execute("SHOW DATABASES")
+#         # for db in c:
+#         #    print(db)
 
-        #creating my tale:
-        c.execute("""CREATE TABLE if not exists customers(name VARCHAR(50))""")
+#         #creating my tale:
+#         c.execute("""CREATE TABLE if not exists customers(name VARCHAR(50))""")
 
-        #check for creation of table
-        # c.execute("SHOW TABLES")
-        # for table in c:
-        #     print(table)
-        # print (c.description)
+#         #check for creation of table
+#         # c.execute("SHOW TABLES")
+#         # for table in c:
+#         #     print(table)
+#         # print (c.description)
 
-        #commit changes
-        mydb.commit()
-        #close connection
-        mydb.close()
-        return kv
+#         #commit changes
+#         mydb.commit()
+#         #close connection
+#         mydb.close()
+#         return kv
 
-    def submit(self):
-        #connect to database
-        mydb = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            passwd="password123",
-            database="second_db"
-        )
-        c = mydb.cursor()
-        sql_command = "INSERT INTO customers (name) VALUES (%s)"
-        print("it reaches 4")
-        values = (self.root.ids.ReceiverName.text,)
-        print("it reaches 5")
-        print(values)
-        print("it reaches 6")
+#     def submit(self):
+#         #connect to database
+#         mydb = mysql.connector.connect(
+#             host="localhost",
+#             user="root",
+#             passwd="password123",
+#             database="second_db"
+#         )
+#         c = mydb.cursor()
+#         sql_command = "INSERT INTO customers (name) VALUES (%s)"
+#         print("it reaches 4")
+#         values = (self.root.ids.ReceiverName.text,)
+#         print("it reaches 5")
+#         print(values)
+#         print("it reaches 6")
 
-    #
-    #     #execute SQL command
-        c.execute(sql_command, values)
-    #
-    #     #add a message
-        self.root.ids.ReceiverName.text = f'{self.root.ids.ReceiverName}'
-    #
-        self.root.ids.ReceiverName.text = ''
-    #commit changes
-        mydb.commit()
-    #close the database
-        mydb.close()
-    #
-    def show_records(self):
-        mydb = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            passwd="password123",
-            database="second_db"
-        )
-        c = mydb.cursor()
-    #
-    #
-        c.execute("SELECT * FROM customers")
-        records = c.fetchall()
-    #
-        word = ''
-    #
-        for record in records:
-            word = f'{word}\n{record[0]}'
-            self.root.ids.word_label.text = f'{word}'
-    #
-        mydb.commit()
-        mydb.close()
+#     #
+#     #     #execute SQL command
+#         c.execute(sql_command, values)
+#     #
+#     #     #add a message
+#         self.root.ids.ReceiverName.text = f'{self.root.ids.ReceiverName}'
+#     #
+#         self.root.ids.ReceiverName.text = ''
+#     #commit changes
+#         mydb.commit()
+#     #close the database
+#         mydb.close()
+#     #
+#     def show_records(self):
+#         mydb = mysql.connector.connect(
+#             host="localhost",
+#             user="root",
+#             passwd="password123",
+#             database="second_db"
+#         )
+#         c = mydb.cursor()
+#     #
+#     #
+#         c.execute("SELECT * FROM customers")
+#         records = c.fetchall()
+#     #
+#         word = ''
+#     #
+#         for record in records:
+#             word = f'{word}\n{record[0]}'
+#             self.root.ids.word_label.text = f'{word}'
+#     #
+#         mydb.commit()
+#         mydb.close()
 
 
 
